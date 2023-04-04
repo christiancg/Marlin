@@ -234,6 +234,8 @@ bool load_filament(const_float_t slow_load_length/*=0*/, const_float_t fast_load
 
   TERN_(BELTPRINTER, do_blocking_move_to_xy(0.00, 50.00));
 
+  TERN_(MPCTEMP, MPC::e_paused = true);
+
   // Slow Load filament
   if (slow_load_length) unscaled_e_move(slow_load_length, FILAMENT_CHANGE_SLOW_LOAD_FEEDRATE);
 
@@ -297,6 +299,9 @@ bool load_filament(const_float_t slow_load_length/*=0*/, const_float_t fast_load
     } while (TERN0(M600_PURGE_MORE_RESUMABLE, pause_menu_response == PAUSE_RESPONSE_EXTRUDE_MORE));
 
   #endif
+
+  TERN_(MPCTEMP, MPC::e_paused = false);
+
   TERN_(HOST_PROMPT_SUPPORT, hostui.prompt_end());
 
   return true;
@@ -410,7 +415,6 @@ bool pause_print(const_float_t retract, const xyz_pos_t &park_point, const bool 
   #endif
 
   TERN_(HOST_PROMPT_SUPPORT, hostui.prompt_open(PROMPT_INFO, F("Pause"), FPSTR(DISMISS_STR)));
-  TERN_(DWIN_LCD_PROUI, DWIN_Print_Pause());
 
   // Indicate that the printer is paused
   ++did_pause_print;
@@ -461,6 +465,7 @@ bool pause_print(const_float_t retract, const xyz_pos_t &park_point, const bool 
 
   // If axes don't need to home then the nozzle can park
   if (do_park) nozzle.park(0, park_point); // Park the nozzle by doing a Minimum Z Raise followed by an XY Move
+  TERN_(DWIN_LCD_PROUI, if (!do_park) ui.set_status(GET_TEXT_F(MSG_PARK_FAILED)));
 
   #if ENABLED(DUAL_X_CARRIAGE)
     const int8_t saved_ext        = active_extruder;
@@ -710,13 +715,8 @@ void resume_print(const_float_t slow_load_length/*=0*/, const_float_t fast_load_
 
   TERN_(HAS_FILAMENT_SENSOR, runout.reset());
 
-  #if ENABLED(DWIN_LCD_PROUI)
-    DWIN_Print_Resume();
-    HMI_ReturnScreen();
-  #else
-    ui.reset_status();
-    ui.return_to_status();
-  #endif
+  ui.reset_status();
+  ui.return_to_status();
 }
 
 #endif // ADVANCED_PAUSE_FEATURE

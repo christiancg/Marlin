@@ -50,6 +50,8 @@
   #include "delta.h"
 #elif ENABLED(POLARGRAPH)
   #include "polargraph.h"
+#elif ENABLED(POLAR)
+  #include "polar.h"
 #endif
 
 #if ABL_PLANAR
@@ -291,7 +293,7 @@ typedef struct PlannerBlock {
 
 } block_t;
 
-#if ANY(LIN_ADVANCE, SCARA_FEEDRATE_SCALING, GRADIENT_MIX, LCD_SHOW_E_TOTAL, POWER_LOSS_RECOVERY)
+#if ANY(LIN_ADVANCE, FEEDRATE_SCALING, GRADIENT_MIX, LCD_SHOW_E_TOTAL, POWER_LOSS_RECOVERY)
   #define HAS_POSITION_FLOAT 1
 #endif
 
@@ -350,8 +352,8 @@ typedef struct {
   } skew_factor_t;
 #endif
 
-#if ENABLED(DISABLE_INACTIVE_EXTRUDER)
-  typedef IF<(BLOCK_BUFFER_SIZE > 64), uint16_t, uint8_t>::type last_move_t;
+#if ENABLED(DISABLE_OTHER_EXTRUDERS)
+  typedef uvalue_t(BLOCK_BUFFER_SIZE * 2) last_move_t;
 #endif
 
 #if ENABLED(ARC_SUPPORT)
@@ -361,7 +363,7 @@ typedef struct {
 
 struct PlannerHints {
   float millimeters = 0.0;            // Move Length, if known, else 0.
-  #if ENABLED(SCARA_FEEDRATE_SCALING)
+  #if ENABLED(FEEDRATE_SCALING)
     float inv_duration = 0.0;         // Reciprocal of the move duration, if known
   #endif
   #if ENABLED(HINTS_CURVE_RADIUS)
@@ -375,6 +377,11 @@ struct PlannerHints {
                                       // would calculate if it knew the as-yet-unbuffered path
   #endif
 
+  #if HAS_ROTATIONAL_AXES
+    bool cartesian_move = true;       // True if linear motion of the tool centerpoint relative to the workpiece occurs.
+                                      // False if no movement of the tool center point relative to the work piece occurs
+                                      // (i.e. the tool rotates around the tool centerpoint)
+  #endif
   PlannerHints(const_float_t mm=0.0f) : millimeters(mm) {}
 };
 
@@ -505,6 +512,10 @@ class Planner {
       }
     #endif
 
+    #if ENABLED(FT_MOTION)
+      static bool fxdTiCtrl_busy;
+    #endif
+
   private:
 
     /**
@@ -526,9 +537,9 @@ class Planner {
       static float last_fade_z;
     #endif
 
-    #if ENABLED(DISABLE_INACTIVE_EXTRUDER)
+    #if ENABLED(DISABLE_OTHER_EXTRUDERS)
       // Counters to manage disabling inactive extruder steppers
-      static last_move_t g_uc_extruder_last_move[E_STEPPERS];
+      static last_move_t extruder_last_move[E_STEPPERS];
     #endif
 
     #if HAS_WIRED_LCD
@@ -913,8 +924,8 @@ class Planner {
       return out;
     }
 
-    // SCARA AB axes are in degrees, not mm
-    #if IS_SCARA
+    // SCARA AB and Polar YB axes are in degrees, not mm
+    #if EITHER(IS_SCARA, POLAR)
       FORCE_INLINE static float get_axis_position_degrees(const AxisEnum axis) { return get_axis_position_mm(axis); }
     #endif
 
