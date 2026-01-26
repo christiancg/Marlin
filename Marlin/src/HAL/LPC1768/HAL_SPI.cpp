@@ -40,10 +40,6 @@
  * SPI sharing pins. The SCK, MOSI & MISO pins can NOT be set/cleared with
  * WRITE nor digitalWrite when the hardware SPI module within the LPC17xx is
  * active. If any of these pins are shared then the software SPI must be used.
- *
- * A more sophisticated hardware SPI can be found at the following link.
- * This implementation has not been fully debugged.
- * https://github.com/MarlinFirmware/Marlin/tree/071c7a78f27078fd4aee9a3ef365fcf5e143531e
  */
 
 #ifdef TARGET_LPC1768
@@ -318,7 +314,7 @@ void SPIClass::dmaSend(void *buf, uint16_t length, bool minc) {
   // Enable DMA
   GPDMA_ChannelCmd(0, ENABLE);
 
-  /*
+  /**
    * Observed behaviour on normal data transfer completion (SKR 1.3 board / LPC1768 MCU)
    *   GPDMA_STAT_INTTC flag is SET
    *   GPDMA_STAT_INTERR flag is NOT SET

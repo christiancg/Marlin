@@ -27,27 +27,27 @@
  * LCD Menu Messages
  * See also https://marlinfw.org/docs/development/lcd_language.html
  */
-namespace Language_vi {
+namespace LanguageNarrow_vi {
   using namespace Language_en; // Inherit undefined strings from English
 
   constexpr uint8_t CHARSIZE              = 2;
   LSTR LANGUAGE                           = _UxGT("Vietnamese");
 
-  LSTR WELCOME_MSG                        = MACHINE_NAME _UxGT(" Sẵn sàng.");              // Ready
+  LSTR WELCOME_MSG                        = MACHINE_NAME_SUBST _UxGT(" Sẵn sàng.");        // Ready
   LSTR MSG_BACK                           = _UxGT("Trở lại");                              // Back
+
   LSTR MSG_MEDIA_ABORTING                 = _UxGT("Đang hủy bỏ...");
   LSTR MSG_MEDIA_INSERTED                 = _UxGT("Phương tiện được cắm vào");             // Media inserted
   LSTR MSG_MEDIA_REMOVED                  = _UxGT("Phương tiện được rút ra");
-  LSTR MSG_MEDIA_WAITING                  = _UxGT("Chờ đợi phương tiện");
   LSTR MSG_MEDIA_READ_ERROR               = _UxGT("Lỗi đọc phương tiện");
-  LSTR MSG_MEDIA_USB_REMOVED              = _UxGT("USB được rút ra");
-  LSTR MSG_MEDIA_USB_FAILED               = _UxGT("USB khởi thất bại");
+  LSTR MSG_USB_FD_DEVICE_REMOVED          = _UxGT("USB được rút ra");
+  LSTR MSG_USB_FD_USB_FAILED              = _UxGT("USB khởi thất bại");
+
   LSTR MSG_LCD_ENDSTOPS                   = _UxGT("Công tắc");                             // Endstops - công tắc hành trình
   LSTR MSG_LCD_SOFT_ENDSTOPS              = _UxGT("Công tắc mềm");                         // Soft Endstops
   LSTR MSG_MAIN_MENU                      = _UxGT("Chính");                                // Main
   LSTR MSG_ADVANCED_SETTINGS              = _UxGT("Thiết lập cấp cao");                    // Advanced Settings
   LSTR MSG_CONFIGURATION                  = _UxGT("Cấu hình");                             // Configuration
-  LSTR MSG_RUN_AUTO_FILES                 = _UxGT("Khởi chạy tự động");                    // Autostart
   LSTR MSG_DISABLE_STEPPERS               = _UxGT("Tắt động cơ bước");                     // Disable steppers
   LSTR MSG_DEBUG_MENU                     = _UxGT("Menu gỡ lỗi");                          // Debug Menu
   LSTR MSG_PROGRESS_BAR_TEST              = _UxGT("Kiểm tra tiến độ");                     // Progress bar test
@@ -63,23 +63,23 @@ namespace Language_vi {
   LSTR MSG_Z_FADE_HEIGHT                  = _UxGT("Chiều cao mờ dần");                     // Fade Height
   LSTR MSG_SET_HOME_OFFSETS               = _UxGT("Đặt bù đắp nhà");                       // Set home offsets
   LSTR MSG_HOME_OFFSETS_APPLIED           = _UxGT("Bù đắp được áp dụng");                  // Offsets applied
-  #if HAS_PREHEAT
-    LSTR MSG_PREHEAT_1                    = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" trước");      // Preheat
-    LSTR MSG_PREHEAT_1_H                  = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" trước ~");    // Preheat
-    LSTR MSG_PREHEAT_1_END                = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" Đầu");
-    LSTR MSG_PREHEAT_1_END_E              = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" Đầu ~");
-    LSTR MSG_PREHEAT_1_ALL                = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" Tất cả");     // All
-    LSTR MSG_PREHEAT_1_BEDONLY            = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" Bàn");        // Bed -- using vietnamese term for 'table' instead
-    LSTR MSG_PREHEAT_1_SETTINGS           = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" Cấu hình");   // Conf
 
-    LSTR MSG_PREHEAT_M                    = _UxGT("Làm nóng $ trước");                     // Preheat
-    LSTR MSG_PREHEAT_M_H                  = _UxGT("Làm nóng $ trước ~");                   // Preheat
-    LSTR MSG_PREHEAT_M_END                = _UxGT("Làm nóng $ Đầu");
-    LSTR MSG_PREHEAT_M_END_E              = _UxGT("Làm nóng $ Đầu ~");
-    LSTR MSG_PREHEAT_M_ALL                = _UxGT("Làm nóng $ Tất cả");                    // All
-    LSTR MSG_PREHEAT_M_BEDONLY            = _UxGT("Làm nóng $ Bàn");                       // Bed -- using vietnamese term for 'table' instead
-    LSTR MSG_PREHEAT_M_SETTINGS           = _UxGT("Làm nóng $ Cấu hình");                  // Conf
-  #endif
+  LSTR MSG_PREHEAT_1                      = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" trước");      // Preheat
+  LSTR MSG_PREHEAT_1_H                    = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" trước ~");    // Preheat
+  LSTR MSG_PREHEAT_1_END                  = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" Đầu");
+  LSTR MSG_PREHEAT_1_END_E                = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" Đầu ~");
+  LSTR MSG_PREHEAT_1_ALL                  = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" Tất cả");     // All
+  LSTR MSG_PREHEAT_1_BEDONLY              = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" Bàn");        // Bed -- using vietnamese term for 'table' instead
+  LSTR MSG_PREHEAT_1_SETTINGS             = _UxGT("Làm nóng ") PREHEAT_1_LABEL _UxGT(" Cấu hình");   // Conf
+
+  LSTR MSG_PREHEAT_M                      = _UxGT("Làm nóng $ trước");                     // Preheat
+  LSTR MSG_PREHEAT_M_H                    = _UxGT("Làm nóng $ trước ~");                   // Preheat
+  LSTR MSG_PREHEAT_M_END                  = _UxGT("Làm nóng $ Đầu");
+  LSTR MSG_PREHEAT_M_END_E                = _UxGT("Làm nóng $ Đầu ~");
+  LSTR MSG_PREHEAT_M_ALL                  = _UxGT("Làm nóng $ Tất cả");                    // All
+  LSTR MSG_PREHEAT_M_BEDONLY              = _UxGT("Làm nóng $ Bàn");                       // Bed -- using vietnamese term for 'table' instead
+  LSTR MSG_PREHEAT_M_SETTINGS             = _UxGT("Làm nóng $ Cấu hình");                  // Conf
+
   LSTR MSG_PREHEAT_CUSTOM                 = _UxGT("Sự nóng trước tự chọn");                // Preheat Custom
   LSTR MSG_COOLDOWN                       = _UxGT("Nguội xuống");                          // Cooldown
   LSTR MSG_SWITCH_PS_ON                   = _UxGT("Bật nguồn");                            // Switch power on
@@ -87,6 +87,7 @@ namespace Language_vi {
   LSTR MSG_EXTRUDE                        = _UxGT("Ép đùn");                               // Extrude
   LSTR MSG_RETRACT                        = _UxGT("Rút lại");                              // Retract
   LSTR MSG_MOVE_AXIS                      = _UxGT("Di chuyển trục");                       // Move axis
+  LSTR MSG_PROBE_AND_LEVEL                = _UxGT("Chạm và san lấp");                      // Probe and Level
   LSTR MSG_BED_LEVELING                   = _UxGT("San Lấp Bàn");                          // Bed Leveling
   LSTR MSG_LEVEL_BED                      = _UxGT("Làm bằng mặt bàn");                     // Level bed
   LSTR MSG_BED_TRAMMING                   = _UxGT("Làm bằng góc bàn");                     // Level corners
@@ -98,7 +99,6 @@ namespace Language_vi {
   LSTR MSG_CUSTOM_COMMANDS                = _UxGT("Các lệnh tự chọn");                     // Custom Commands
   LSTR MSG_UBL_DOING_G29                  = _UxGT("Đang chạy G29");                        // Doing G29
   LSTR MSG_UBL_TOOLS                      = _UxGT("Công cụ UBL");                          // UBL tools
-  LSTR MSG_UBL_LEVEL_BED                  = _UxGT("San Lấp Bàn Thống Nhất (UBL)");         // Unified Bed Leveling
   LSTR MSG_IDEX_MENU                      = _UxGT("chế độ IDEX");                          // IDEX Mode
   LSTR MSG_IDEX_MODE_AUTOPARK             = _UxGT("Đậu tự động");                          // Auto-Park
   LSTR MSG_IDEX_MODE_DUPLICATE            = _UxGT("Sự gấp đôi");                           // Duplication
@@ -113,22 +113,17 @@ namespace Language_vi {
   LSTR MSG_UBL_BC_INSERT2                 = _UxGT("Đo");                                   // Measure
   LSTR MSG_UBL_BC_REMOVE                  = _UxGT("Tháo và đo bàn");                       // Remove & measure bed
   LSTR MSG_UBL_MOVING_TO_NEXT             = _UxGT("Chuyển sang tiếp theo");                // Moving to next
-  LSTR MSG_UBL_ACTIVATE_MESH              = _UxGT("Bật UBL");
-  LSTR MSG_UBL_DEACTIVATE_MESH            = _UxGT("Tắt UBL");
   LSTR MSG_UBL_SET_TEMP_BED               = _UxGT("Nhiệt độ bàn");                         // Bed Temp
   LSTR MSG_UBL_BED_TEMP_CUSTOM            = _UxGT("Bed Temp");
   LSTR MSG_UBL_SET_TEMP_HOTEND            = _UxGT("Nhiệt độ đầu phun");                    // Hotend Temp
   LSTR MSG_UBL_HOTEND_TEMP_CUSTOM         = _UxGT("Hotend Temp");
-  LSTR MSG_UBL_MESH_EDIT                  = _UxGT("Chỉnh sửa lưới");                       // Mesh Edit
   LSTR MSG_UBL_EDIT_CUSTOM_MESH           = _UxGT("Chỉnh sửa lưới tự chọn");               // Edit Custom Mesh
   LSTR MSG_UBL_FINE_TUNE_MESH             = _UxGT("Chỉnh lưới chính xác");                 // Fine tuning mesh
   LSTR MSG_UBL_DONE_EDITING_MESH          = _UxGT("Chỉnh sửa xong lưới");                  // Done Editing Mesh
   LSTR MSG_UBL_BUILD_CUSTOM_MESH          = _UxGT("Xây dựng lưới tự chọn");                // Build Custom Mesh
   LSTR MSG_UBL_BUILD_MESH_MENU            = _UxGT("Xây dựng lưới");                        // Build Mesh
-  #if HAS_PREHEAT
-    LSTR MSG_UBL_BUILD_MESH_M             = _UxGT("Xây dựng lưới ($)");
-    LSTR MSG_UBL_VALIDATE_MESH_M          = _UxGT("Thẩm tra lưới ($)");
-  #endif
+  LSTR MSG_UBL_BUILD_MESH_M               = _UxGT("Xây dựng lưới ($)");
+  LSTR MSG_UBL_VALIDATE_MESH_M            = _UxGT("Thẩm tra lưới ($)");
   LSTR MSG_UBL_BUILD_COLD_MESH            = _UxGT("Xây dựng lưới lạnh");                   // Build cold mesh
   LSTR MSG_UBL_MESH_HEIGHT_ADJUST         = _UxGT("Điều chỉnh chiều cao lưới");            // Adjust Mesh Height
   LSTR MSG_UBL_MESH_HEIGHT_AMOUNT         = _UxGT("Số lượng chiều cao");                   // Height Amount
@@ -175,7 +170,8 @@ namespace Language_vi {
   LSTR MSG_UBL_7_SAVE_MESH                = _UxGT("7.Lưu lưới bàn");
 
   LSTR MSG_LED_CONTROL                    = _UxGT("Điều khiển LED");                       // LED Control
-  LSTR MSG_LEDS                           = _UxGT("Đèn");                                  // Lights
+  LSTR MSG_LIGHTS                         = _UxGT("Đèn");                                  // Lights
+  LSTR MSG_LIGHT_N                        = _UxGT("Đèn #{");                               // Light #{
   LSTR MSG_LED_PRESETS                    = _UxGT("Đèn định sẵn");                         // Light Presets
   LSTR MSG_SET_LEDS_RED                   = _UxGT("Đỏ");                                   // Red
   LSTR MSG_SET_LEDS_ORANGE                = _UxGT("Cam");                                  // Orange
@@ -202,10 +198,9 @@ namespace Language_vi {
   LSTR MSG_MOVE_E                         = _UxGT("Máy đùn");                              // Extruder
   LSTR MSG_MOVE_EN                        = _UxGT("Máy đùn *");
   LSTR MSG_HOTEND_TOO_COLD                = _UxGT("Đầu nóng quá lạnh");                    // Hotend too cold
-  LSTR MSG_MOVE_01MM                      = _UxGT("Di chuyển 0.1mm");                      // Move 0.1mm
-  LSTR MSG_MOVE_1MM                       = _UxGT("Di chuyển 1mm");                        // Move 1mm
-  LSTR MSG_MOVE_10MM                      = _UxGT("Di chuyển 10mm");                       // Move 10mm
-  LSTR MSG_MOVE_100MM                     = _UxGT("Di chuyển 100mm");                      // Move 100mm
+  LSTR MSG_MOVE_N_MM                      = _UxGT("Di chuyển $mm");                        // Move $mm
+  LSTR MSG_MOVE_N_IN                      = _UxGT("Di chuyển $in");                        // Move $in
+  LSTR MSG_MOVE_N_DEG                     = _UxGT("Di chuyển $") LCD_STR_DEGREE;           // Move $°
   LSTR MSG_SPEED                          = _UxGT("Tốc độ");                               // Speed
   LSTR MSG_MESH_Z_OFFSET                  = _UxGT("Z Bàn");
   LSTR MSG_NOZZLE                         = _UxGT("Đầu phun");                             // Nozzle
@@ -314,9 +309,14 @@ namespace Language_vi {
   LSTR MSG_FILAMENTUNLOAD                 = _UxGT("Dỡ dây nhựa");                         // Unload filament
   LSTR MSG_FILAMENTUNLOAD_E               = _UxGT("Dỡ dây nhựa *");                       // Unload filament
   LSTR MSG_FILAMENTUNLOAD_ALL             = _UxGT("Dỡ tất cả");                           // Unload All
+
   LSTR MSG_ATTACH_MEDIA                   = _UxGT("Khởi tạo phương tiện");                // Attach media
+  LSTR MSG_ATTACH_SD                      = _UxGT("Khởi tạo thẻ SD");                     // Attach SD Card
+  LSTR MSG_ATTACH_USB                     = _UxGT("Khởi tạo thanh USB");                  // Attach USB Drive
   LSTR MSG_CHANGE_MEDIA                   = _UxGT("Thay phương tiện");                    // Change midea
   LSTR MSG_RELEASE_MEDIA                  = _UxGT("Phát hành phương tiện");
+  LSTR MSG_RUN_AUTOFILES                  = _UxGT("Khởi chạy tự động");                    // Autostart
+
   LSTR MSG_ZPROBE_OUT                     = _UxGT("Đầu Dò Z qua bàn");                    // Z Probe past bed
   LSTR MSG_SKEW_FACTOR                    = _UxGT("Hệ số nghiêng");                       // Skew Factor
   LSTR MSG_BLTOUCH                        = _UxGT("BLTOUCH");                             // BLTouch
@@ -326,17 +326,20 @@ namespace Language_vi {
   LSTR MSG_BLTOUCH_STOW                   = _UxGT("Cất BLTouch");                         // Stow BLTouch
   LSTR MSG_MANUAL_DEPLOY                  = _UxGT("Đem Đầu Dò-Z");                        // Deploy Z-Probe
   LSTR MSG_MANUAL_STOW                    = _UxGT("Cất Đầu Dò-Z");                        // Stow Z-Probe
-  LSTR MSG_HOME_FIRST                     = _UxGT("Về nhà %s Trước");
+  LSTR MSG_HOME_FIRST                     = _UxGT("Về nhà %s Trước");                     // Home %s first
+  LSTR MSG_ZPROBE_XOFFSET                 = _UxGT("Đầu Dò Bù Đắp X");                     // Probe X Offset
+  LSTR MSG_ZPROBE_YOFFSET                 = _UxGT("Đầu Dò Bù Đắp Y");                     // Probe Y Offset
   LSTR MSG_ZPROBE_ZOFFSET                 = _UxGT("Đầu Dò Bù Đắp Z");                     // Probe Z Offset
+  LSTR MSG_ZPROBE_OFFSET_N                = _UxGT("Đầu Dò Bù Đắp @");                     // Probe @ Offset
+  LSTR MSG_BABYSTEP_PROBE_Z               = _UxGT("Điều chỉnh Z từng");                   // Babystep Probe Z
   LSTR MSG_BABYSTEP_X                     = _UxGT("Nhít X");                              // Babystep X
   LSTR MSG_BABYSTEP_Y                     = _UxGT("Nhít Y");
   LSTR MSG_BABYSTEP_Z                     = _UxGT("Nhít Z");
   LSTR MSG_BABYSTEP_N                     = _UxGT("Nhít @");
   LSTR MSG_ENDSTOP_ABORT                  = _UxGT("Hủy bỏ công tắc");                     // Endstop abort
-  LSTR MSG_HEATING_FAILED_LCD             = _UxGT("Sưởi đầu phun không thành công");      // Heating failed
+  LSTR MSG_ERR_HEATING_FAILED             = _UxGT("Sưởi đầu phun không thành công");      // Heating failed
   LSTR MSG_ERR_REDUNDANT_TEMP             = _UxGT("Điều sai: nhiệt độ dư");               // Err: REDUNDANT TEMP
-  LSTR MSG_THERMAL_RUNAWAY                = _UxGT("Vấn đề nhiệt");                        // THERMAL RUNAWAY | problem
-  LSTR MSG_THERMAL_RUNAWAY_BED            = _UxGT("Vấn đề nhiệt bàn");                    // BED THERMAL RUNAWAY
+  LSTR MSG_ERR_THERMAL_RUNAWAY            = _UxGT("Vấn đề nhiệt");                        // THERMAL RUNAWAY | problem
   LSTR MSG_ERR_MAXTEMP                    = _UxGT("Điều sai: nhiệt độ tối đa");           // Err: MAXTEMP
   LSTR MSG_ERR_MINTEMP                    = _UxGT("Điều sai: nhiệt độ tối thiểu");        // Err: MINTEMP
   LSTR MSG_HALTED                         = _UxGT("MÁY IN ĐÃ DỪNG LẠI");                  // PRINTER HALTED
@@ -370,19 +373,11 @@ namespace Language_vi {
   LSTR MSG_INFO_PROTOCOL                  = _UxGT("Giao Thức");                           // Protocol
   LSTR MSG_CASE_LIGHT                     = _UxGT("Đèn Khuông");                          // Case light
   LSTR MSG_CASE_LIGHT_BRIGHTNESS          = _UxGT("Độ Sáng");                             // Light Brightness
-  #if LCD_WIDTH >= 20 || HAS_DWIN_E3V2
-    LSTR MSG_INFO_PRINT_COUNT             = _UxGT("Số In");                               // Print Count
-    LSTR MSG_INFO_COMPLETED_PRINTS        = _UxGT("Đã hoàn thành");
-    LSTR MSG_INFO_PRINT_TIME              = _UxGT("Tổng số thời gian in");               // Total print time
-    LSTR MSG_INFO_PRINT_LONGEST           = _UxGT("Thời gian việc lâu nhất");             // Longest job time
-    LSTR MSG_INFO_PRINT_FILAMENT          = _UxGT("Tổng số đùn");                         // Extruded total
-  #else
-    LSTR MSG_INFO_PRINT_COUNT             = _UxGT("In");                                  // Prints
-    LSTR MSG_INFO_COMPLETED_PRINTS        = _UxGT("Đã hoàn thành");                       // Completed
-    LSTR MSG_INFO_PRINT_TIME              = _UxGT("Tổng số");                            // Total
-    LSTR MSG_INFO_PRINT_LONGEST           = _UxGT("Dài nhất");                            // Longest
-    LSTR MSG_INFO_PRINT_FILAMENT          = _UxGT("Đã ép đùn");
-  #endif
+  LSTR MSG_INFO_PRINT_COUNT               = _UxGT("In");                                  // Prints
+  LSTR MSG_INFO_COMPLETED_PRINTS          = _UxGT("Đã hoàn thành");                       // Completed
+  LSTR MSG_INFO_PRINT_TIME                = _UxGT("Tổng số");                            // Total
+  LSTR MSG_INFO_PRINT_LONGEST             = _UxGT("Dài nhất");                            // Longest
+  LSTR MSG_INFO_PRINT_FILAMENT            = _UxGT("Đã ép đùn");
   LSTR MSG_INFO_MIN_TEMP                  = _UxGT("Nhiệt độ tối thiểu");                  // Min Temp
   LSTR MSG_INFO_MAX_TEMP                  = _UxGT("Nhiệt độ tối đa");                     // Max temp
   LSTR MSG_INFO_PSU                       = _UxGT("Bộ nguồn");                            // PSU
@@ -433,9 +428,31 @@ namespace Language_vi {
   LSTR MSG_TMC_HYBRID_THRS                = _UxGT("Ngưỡng Hỗn Hợp");                      // Hybrid threshold
   LSTR MSG_TMC_HOMING_THRS                = _UxGT("Vô cảm biến");                         // Sensorless homing
   LSTR MSG_TMC_STEPPING_MODE              = _UxGT("Chế độ từng bước");                    // Stepping mode
-  LSTR MSG_TMC_STEALTH_ENABLED            = _UxGT("CắtTàngHình được kích hoạt");          // StealthChop enabled
+  LSTR MSG_TMC_STEALTHCHOP                = _UxGT("CắtTàngHình");                         // StealthChop
 
   LSTR MSG_SHORT_DAY                      = _UxGT("n");                                   // d - ngày - One character only
   LSTR MSG_SHORT_HOUR                     = _UxGT("g");                                   // h - giờ  - One character only
   LSTR MSG_SHORT_MINUTE                   = _UxGT("p");                                   // m - phút - One character only
+}
+
+namespace LanguageWide_vi {
+  using namespace LanguageNarrow_vi;
+  #if LCD_WIDTH >= 20 || HAS_DWIN_E3V2
+    LSTR MSG_INFO_PRINT_COUNT             = _UxGT("Số In");                               // Print Count
+    LSTR MSG_INFO_COMPLETED_PRINTS        = _UxGT("Đã hoàn thành");
+    LSTR MSG_INFO_PRINT_TIME              = _UxGT("Tổng số thời gian in");               // Total print time
+    LSTR MSG_INFO_PRINT_LONGEST           = _UxGT("Thời gian việc lâu nhất");             // Longest job time
+    LSTR MSG_INFO_PRINT_FILAMENT          = _UxGT("Tổng số đùn");                         // Extruded total
+  #endif
+}
+
+namespace LanguageTall_vi {
+  using namespace LanguageWide_vi;
+  #if LCD_HEIGHT >= 4
+    // Filament Change screens show up to 3 lines on a 4-line display
+  #endif
+}
+
+namespace Language_vi {
+  using namespace LanguageTall_vi;
 }

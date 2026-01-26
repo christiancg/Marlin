@@ -31,7 +31,7 @@
 
 //#define DISPLAY_CHARSET_ISO10646_KANA
 
-namespace Language_jp_kana {
+namespace LanguageNarrow_jp_kana {
   using namespace Language_en; // Inherit undefined strings from English
 
   constexpr uint8_t CHARSIZE              = 3;
@@ -41,13 +41,12 @@ namespace Language_jp_kana {
   // This translation can be improved by using the full charset of unicode codeblock U+30A0 to U+30FF.
 
   // 片仮名表示定義
-  LSTR WELCOME_MSG                        = MACHINE_NAME _UxGT(" ジュンビカンリョウ");
+  LSTR WELCOME_MSG                        = MACHINE_NAME_SUBST _UxGT(" ジュンビカンリョウ");
   LSTR MSG_MEDIA_INSERTED                 = _UxGT("メディアガソウニュウサレマシタ"); // "Card inserted"
   LSTR MSG_MEDIA_REMOVED                  = _UxGT("メディアガアリマセン"); // "Card removed"
   LSTR MSG_RELEASE_MEDIA                  = _UxGT("メディアノトリダシ");
   LSTR MSG_LCD_ENDSTOPS                   = _UxGT("エンドストップ"); // "Endstops" // Max length 8 characters
   LSTR MSG_MAIN_MENU                      = _UxGT("メイン"); // "Main"
-  LSTR MSG_RUN_AUTO_FILES                 = _UxGT("ジドウカイシ"); // "Autostart"
   LSTR MSG_DISABLE_STEPPERS               = _UxGT("モーターデンゲン オフ"); // "Disable steppers"
   LSTR MSG_DEBUG_MENU                     = _UxGT("デバッグメニュー"); // "Debug Menu"
   LSTR MSG_PROGRESS_BAR_TEST              = _UxGT("プログレスバー テスト"); // "Progress Bar Test"
@@ -61,29 +60,30 @@ namespace Language_jp_kana {
   LSTR MSG_LEVEL_BED_DONE                 = _UxGT("レベリングカンリョウ"); // "Leveling Done!"
   LSTR MSG_SET_HOME_OFFSETS               = _UxGT("キジュンオフセットセッテイ"); // "Set home offsets"
   LSTR MSG_HOME_OFFSETS_APPLIED           = _UxGT("オフセットガテキヨウサレマシタ"); // "Offsets applied"
-  #if HAS_PREHEAT
-    LSTR MSG_PREHEAT_1                    = PREHEAT_1_LABEL _UxGT(" ヨネツ"); // "Preheat " PREHEAT_1_LABEL
-    LSTR MSG_PREHEAT_1_H                  = PREHEAT_1_LABEL _UxGT(" ヨネツ ~"); // "Preheat " PREHEAT_1_LABEL
-    LSTR MSG_PREHEAT_1_END                = PREHEAT_1_LABEL _UxGT(" ヨネツノズル"); // " Nozzle"
-    LSTR MSG_PREHEAT_1_END_E              = PREHEAT_1_LABEL _UxGT(" ヨネツノズル ~"); // " Nozzle"
-    LSTR MSG_PREHEAT_1_ALL                = PREHEAT_1_LABEL _UxGT(" スベテヨネツ"); // " All"
-    LSTR MSG_PREHEAT_1_BEDONLY            = PREHEAT_1_LABEL _UxGT(" ベッドヨネツ"); // " Bed"
-    LSTR MSG_PREHEAT_1_SETTINGS           = PREHEAT_1_LABEL _UxGT(" ヨネツセッテイ"); // " conf"
 
-    LSTR MSG_PREHEAT_M                    = _UxGT("$ ヨネツ"); // "Preheat " PREHEAT_1_LABEL
-    LSTR MSG_PREHEAT_M_H                  = _UxGT("$ ヨネツ ~"); // "Preheat " PREHEAT_1_LABEL
-    LSTR MSG_PREHEAT_M_END                = _UxGT("$ ヨネツノズル"); // " Nozzle"
-    LSTR MSG_PREHEAT_M_END_E              = _UxGT("$ ヨネツノズル ~"); // " Nozzle"
-    LSTR MSG_PREHEAT_M_ALL                = _UxGT("$ スベテヨネツ"); // " All"
-    LSTR MSG_PREHEAT_M_BEDONLY            = _UxGT("$ ベッドヨネツ"); // " Bed"
-    LSTR MSG_PREHEAT_M_SETTINGS           = _UxGT("$ ヨネツセッテイ"); // " conf"
-  #endif
+  LSTR MSG_PREHEAT_1                      = PREHEAT_1_LABEL _UxGT(" ヨネツ"); // "Preheat " PREHEAT_1_LABEL
+  LSTR MSG_PREHEAT_1_H                    = PREHEAT_1_LABEL _UxGT(" ヨネツ ~"); // "Preheat " PREHEAT_1_LABEL
+  LSTR MSG_PREHEAT_1_END                  = PREHEAT_1_LABEL _UxGT(" ヨネツノズル"); // " Nozzle"
+  LSTR MSG_PREHEAT_1_END_E                = PREHEAT_1_LABEL _UxGT(" ヨネツノズル ~"); // " Nozzle"
+  LSTR MSG_PREHEAT_1_ALL                  = PREHEAT_1_LABEL _UxGT(" スベテヨネツ"); // " All"
+  LSTR MSG_PREHEAT_1_BEDONLY              = PREHEAT_1_LABEL _UxGT(" ベッドヨネツ"); // " Bed"
+  LSTR MSG_PREHEAT_1_SETTINGS             = PREHEAT_1_LABEL _UxGT(" ヨネツセッテイ"); // " conf"
+
+  LSTR MSG_PREHEAT_M                      = _UxGT("$ ヨネツ"); // "Preheat " PREHEAT_1_LABEL
+  LSTR MSG_PREHEAT_M_H                    = _UxGT("$ ヨネツ ~"); // "Preheat " PREHEAT_1_LABEL
+  LSTR MSG_PREHEAT_M_END                  = _UxGT("$ ヨネツノズル"); // " Nozzle"
+  LSTR MSG_PREHEAT_M_END_E                = _UxGT("$ ヨネツノズル ~"); // " Nozzle"
+  LSTR MSG_PREHEAT_M_ALL                  = _UxGT("$ スベテヨネツ"); // " All"
+  LSTR MSG_PREHEAT_M_BEDONLY              = _UxGT("$ ベッドヨネツ"); // " Bed"
+  LSTR MSG_PREHEAT_M_SETTINGS             = _UxGT("$ ヨネツセッテイ"); // " conf"
+
   LSTR MSG_COOLDOWN                       = _UxGT("カネツテイシ"); // "Cooldown"
   LSTR MSG_SWITCH_PS_ON                   = _UxGT("デンゲン オン"); // "Switch power on"
   LSTR MSG_SWITCH_PS_OFF                  = _UxGT("デンゲン オフ"); // "Switch power off"
   LSTR MSG_EXTRUDE                        = _UxGT("オシダシ"); // "Extrude"
   LSTR MSG_RETRACT                        = _UxGT("ヒキコミセッテイ"); // "Retract"
   LSTR MSG_MOVE_AXIS                      = _UxGT("ジクイドウ"); // "Move axis"
+  LSTR MSG_PROBE_AND_LEVEL                = _UxGT("プローブ アンド レベリング"); // "Probe and Level"
   LSTR MSG_BED_LEVELING                   = _UxGT("ベッドレベリング"); // "Bed leveling"
   LSTR MSG_LEVEL_BED                      = _UxGT("ベッドレベリング"); // "Level bed"
 
@@ -95,12 +95,9 @@ namespace Language_jp_kana {
   LSTR MSG_MOVE_N                         = _UxGT("@ジク イドウ"); // "Move @"
   LSTR MSG_MOVE_E                         = _UxGT("エクストルーダー"); // "Extruder"
   LSTR MSG_MOVE_EN                        = _UxGT("* エクストルーダー"); // "En"
-  LSTR MSG_MOVE_N_MM                      = _UxGT("$mm イドウ"); // "Move 0.025mm"
-  LSTR MSG_MOVE_01MM                      = _UxGT("0.1mm イドウ"); // "Move 0.1mm"
-  LSTR MSG_MOVE_1MM                       = _UxGT("  1mm イドウ"); // "Move 1mm"
-  LSTR MSG_MOVE_10MM                      = _UxGT(" 10mm イドウ"); // "Move 10mm"
-  LSTR MSG_MOVE_50MM                      = _UxGT(" 50mm イドウ"); // "Move 50mm"
-  LSTR MSG_MOVE_100MM                     = _UxGT(" 100mm イドウ"); // "Move 100mm"
+  LSTR MSG_MOVE_N_MM                      = _UxGT("$mm イドウ"); // "Move $mm"
+  LSTR MSG_MOVE_N_IN                      = _UxGT("$in イドウ"); // "Move $in"
+  LSTR MSG_MOVE_N_DEG                     = _UxGT("$" LCD_STR_DEGREE " イドウ"); // "Move $°"
   LSTR MSG_SPEED                          = _UxGT("ソクド"); // "Speed"
   LSTR MSG_MESH_Z_OFFSET                  = _UxGT("Zオフセット"); // "Bed Z"
   LSTR MSG_NOZZLE                         = _UxGT("ノズル"); // "Nozzle"
@@ -170,20 +167,29 @@ namespace Language_jp_kana {
   LSTR MSG_CONTROL_RETRACT_RECOVERF       = _UxGT("ホショウソクド mm/s"); // "Unretract V"
   LSTR MSG_AUTORETRACT                    = _UxGT("ジドウヒキコミ"); // "Auto-Retract"
   LSTR MSG_FILAMENTCHANGE                 = _UxGT("フィラメントコウカン"); // "Change filament"
-  LSTR MSG_ATTACH_MEDIA                   = _UxGT("メディアサイヨミコミ"); // "Init. SD card"
+
+  LSTR MSG_ATTACH_MEDIA                   = _UxGT("SDカードをマウントする"); // "Attach SD Card"
+  LSTR MSG_ATTACH_SD                      = _UxGT("SDカードをマウントする"); // "Attach SD Card"
+  LSTR MSG_ATTACH_USB                     = _UxGT("USBメモリをマウントする"); // "Attach USB Drive"
   LSTR MSG_CHANGE_MEDIA                   = _UxGT("メディアコウカン"); // "Change SD card"
+  LSTR MSG_RUN_AUTOFILES                  = _UxGT("ジドウカイシ"); // "Autostart"
+
   LSTR MSG_ZPROBE_OUT                     = _UxGT("Zプローブ ベッドガイ"); // "Z probe out. bed"
   LSTR MSG_BLTOUCH_SELFTEST               = _UxGT("BLTouch ジコシンダン"); // "BLTouch Self-Test"
   LSTR MSG_BLTOUCH_RESET                  = _UxGT("BLTouch リセット"); // "Reset BLTouch"
   LSTR MSG_HOME_FIRST                     = _UxGT("サキニ %s ヲフッキサセテクダサイ"); // "Home ... first"
+  LSTR MSG_ZPROBE_XOFFSET                 = _UxGT("Xオフセット"); // "X Offset"
+  LSTR MSG_ZPROBE_YOFFSET                 = _UxGT("Yオフセット"); // "Y Offset"
   LSTR MSG_ZPROBE_ZOFFSET                 = _UxGT("Zオフセット"); // "Z Offset"
+  LSTR MSG_ZPROBE_OFFSET_N                = _UxGT("@オフセット"); // "@ Offset"
+  LSTR MSG_BABYSTEP_PROBE_Z               = _UxGT("プローブZオフセット"); // "Babystep Probe Z"
   LSTR MSG_BABYSTEP_X                     = _UxGT("Xジク ビドウ"); // "Babystep X"
   LSTR MSG_BABYSTEP_Y                     = _UxGT("Yジク ビドウ"); // "Babystep Y"
   LSTR MSG_BABYSTEP_Z                     = _UxGT("Zジク ビドウ"); // "Babystep Z"
   LSTR MSG_ENDSTOP_ABORT                  = _UxGT("イドウゲンカイケンチキノウ"); // "Endstop abort"
-  LSTR MSG_HEATING_FAILED_LCD             = _UxGT("カネツシッパイ"); // "Heating failed"
+  LSTR MSG_ERR_HEATING_FAILED             = _UxGT("カネツシッパイ"); // "Heating failed"
   LSTR MSG_ERR_REDUNDANT_TEMP             = _UxGT("エラー:ジョウチョウサーミスターキノウ"); // "Err: REDUNDANT TEMP"
-  LSTR MSG_THERMAL_RUNAWAY                = _UxGT("ネツボウソウ"); // "THERMAL RUNAWAY"
+  LSTR MSG_ERR_THERMAL_RUNAWAY            = _UxGT("ネツボウソウ"); // "THERMAL RUNAWAY"
   LSTR MSG_ERR_MAXTEMP                    = _UxGT("エラー:サイコウオンチョウカ"); // "Err: MAXTEMP"
   LSTR MSG_ERR_MINTEMP                    = _UxGT("エラー:サイテイオンミマン"); // "Err: MINTEMP"
   LSTR MSG_HALTED                         = _UxGT("プリンターハテイシシマシタ"); // "PRINTER HALTED"
@@ -246,4 +252,21 @@ namespace Language_jp_kana {
   LSTR MSG_CUSTOM_COMMANDS                = _UxGT("ユーザーコマンド");
   LSTR MSG_PRINT_PAUSED                   = _UxGT("プリントガイチジテイシサレマシタ");
   LSTR MSG_PRINTING                       = _UxGT("プリントチュウ...");
+}
+
+namespace LanguageWide_jp_kana {
+  using namespace LanguageNarrow_jp_kana;
+  #if LCD_WIDTH >= 20 || HAS_DWIN_E3V2
+  #endif
+}
+
+namespace LanguageTall_jp_kana {
+  using namespace LanguageWide_jp_kana;
+  #if LCD_HEIGHT >= 4
+    // Filament Change screens show up to 3 lines on a 4-line display
+  #endif
+}
+
+namespace Language_jp_kana {
+  using namespace LanguageTall_jp_kana;
 }

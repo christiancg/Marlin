@@ -33,12 +33,12 @@
   #error "TFT IO only supports SPI, FSMC or LTDC interface."
 #endif
 
-#ifndef DMA_MAX_SIZE
-  #error "DMA_MAX_SIZE is not configured for this platform."
+#ifndef DMA_MAX_WORDS
+  #error "DMA_MAX_WORDS is not configured for this platform."
 #endif
 
 #ifndef TFT_DRIVER
-  #define TFT_DRIVER    AUTO
+  #define TFT_DRIVER AUTO
 #endif
 
 #define ESC_REG(x)   0xFFFF, 0x00FF & (uint16_t)x
@@ -74,7 +74,7 @@ public:
   // Non-blocking DMA-based IO used by TFT_COLOR_UI only
   // These functions start data transfer using DMA and do NOT wait for data transfer completion
   inline static void writeSequenceDMA(uint16_t *data, uint16_t count) { io.writeSequence_DMA(data, count); }
-  inline static void WriteMultipleDMA(uint16_t color, uint16_t count) { io.writeMultiple_DMA(color, count); }
+  inline static void writeMultipleDMA(uint16_t color, uint16_t count) { io.writeMultiple_DMA(color, count); }
 
   // Non-blocking DMA-based IO with IRQ callback used by TFT_LVGL_UI only
   // This function starts data transfer using DMA and does NOT wait for data transfer completion
